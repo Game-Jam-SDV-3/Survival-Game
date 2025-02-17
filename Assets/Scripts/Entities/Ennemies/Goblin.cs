@@ -1,9 +1,9 @@
 public class Goblin : Monster
 {
-    public IPower powerToUse;
-
-    private void Start()
+    new private void Start()
     {
+        base.Start();
+        
         Initialize(20, 6f, 60);
         powerToUse = new IncreaseSpeedPower();
         AbsorbPower(powerToUse);

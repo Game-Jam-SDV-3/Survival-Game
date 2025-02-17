@@ -1,9 +1,9 @@
 public class Skeleton : Monster
 {
-    public IPower powerToUse;
-
-    private void Start()
+    new private void Start()
     {
+        base.Start();
+
         Initialize(30, 3f, 100);
         powerToUse = new IncreaseResistancePower();
         AbsorbPower(powerToUse);

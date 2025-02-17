@@ -1,9 +1,9 @@
 public class Spider : Monster
 {
-    public IPower powerToUse;
-
-    private void Start()
+    new private void Start()
     {
+        base.Start();
+        
         Initialize(15, 3f, 60);
         powerToUse = new SlowPower();
         AbsorbPower(powerToUse);

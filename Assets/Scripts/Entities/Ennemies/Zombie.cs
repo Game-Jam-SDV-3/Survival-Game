@@ -1,11 +1,13 @@
+using UnityEngine;
+
 public class Zombie : Monster
 {
-    public IPower powerToUse;
-
-    private void Start()
+    new private void Start()
     {
+        base.Start();
+
         Initialize(10, 2f, 70);
-        powerToUse = new BitePower();
+        powerToUse = new BitePower(); 
         AbsorbPower(powerToUse);
     }
 }

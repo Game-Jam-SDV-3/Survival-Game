@@ -1,9 +1,9 @@
 public class Ghost : Monster
 {
-    public IPower powerToUse;
-
-    private void Start()
+    new private void Start()
     {
+        base.Start();
+
         Initialize(10, 4f, 50);
         powerToUse = new InvisibilityPower();
         AbsorbPower(powerToUse);
