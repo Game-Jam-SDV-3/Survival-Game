@@ -1,23 +1,24 @@
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class FirePower : IPower
 {
-    private Player player;
+    private Entity entity;
 
-    public FirePower(Player player)
+    public FirePower(Entity entity)
     {
-        this.player = player;
+        this.entity = entity;
     }
 
     public void Activate()
     {
         Debug.Log("Pouvoir de feu activé !");
-        player.damage += 10; // Exemple d'effet
+        entity.damage += 10; // Exemple d'effet
     }
 
     public void Deactivate()
     {
         Debug.Log("Pouvoir de feu désactivé !");
-        player.damage -= 10;
+        entity.damage -= 10;
     }
 }
