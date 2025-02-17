@@ -4,6 +4,7 @@ public class Witch : Monster
 
     private void Start()
     {
+        Initialize(20, 2f, 80);
         powerToUse = new HealPower();
         AbsorbPower(powerToUse);
     }

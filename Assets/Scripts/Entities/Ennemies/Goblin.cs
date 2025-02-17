@@ -4,6 +4,7 @@ public class Goblin : Monster
 
     private void Start()
     {
+        Initialize(20, 6f, 60);
         powerToUse = new IncreaseSpeedPower();
         AbsorbPower(powerToUse);
     }

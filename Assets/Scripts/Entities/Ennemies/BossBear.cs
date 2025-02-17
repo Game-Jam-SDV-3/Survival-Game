@@ -5,6 +5,7 @@ public class BossBear : Monster
 
     private void Start()
     {
+        Initialize(45, 3f, 300);
         powerToUse = new BitePower();
         AbsorbPower(powerToUse);
     }

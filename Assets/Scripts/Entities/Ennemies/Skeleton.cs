@@ -4,6 +4,7 @@ public class Skeleton : Monster
 
     private void Start()
     {
+        Initialize(30, 3f, 100);
         powerToUse = new IncreaseResistancePower();
         AbsorbPower(powerToUse);
     }

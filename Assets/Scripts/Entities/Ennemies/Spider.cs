@@ -4,6 +4,7 @@ public class Spider : Monster
 
     private void Start()
     {
+        Initialize(15, 3f, 60);
         powerToUse = new SlowPower();
         AbsorbPower(powerToUse);
     }
