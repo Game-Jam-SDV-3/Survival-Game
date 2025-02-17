@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DungeonGenerator
+{
+    RoomNode rootNode;
+    List<RoomNode> allSpaceNodes = new List<RoomNode>();
+    private int dungeonWidth;
+    private int dungeonLength;
+
+    public DungeonGenerator(int dungeonWidth, int dungeonLength)
+    {
+        this.dungeonWidth = dungeonWidth;
+        this.dungeonLength = dungeonLength;
+    }
+
+    public List<Node> CalculateRooms(int maxIterations, int roomWidthMin, int roomLengthmin)
+    {
+        BinarySpacePartitioner bsp = new BinarySpacePartitioner(dungeonWidth, dungeonLength);
+        allSpaceNodes = bsp.PrepareNodesCollection(maxIterations, roomWidthMin, roomLengthmin);
+        List<Node> roomSpaces = StructureHelper.TraverseGraphToExtractLowestLeafes(bsp.RootNode);
+        RoomGenerator roomGenerator = new RoomGenerator(maxIterations, roomWidthMin, roomLengthmin);
+        List<RoomNode> roomList = roomGenerator.GenerateRoomsInGivenSpaces(roomSpaces);
+        return new List<Node>(roomList);
+    }
+}
