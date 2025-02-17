@@ -21,7 +21,8 @@ public class PlayerLook : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -70f, 70f); // Empêche de regarder trop haut/bas
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f); // Rotation verticale
-        playerBody.Rotate(Vector3.up * mouseX); // Rotation horizontale
+        playerBody.Rotate(Vector3.up * mouseX); 
+        transform.Rotate(Vector3.up * mouseX); 
 
         Debug.DrawRay(transform.position, transform.forward * 10, Color.red); // Dessine un rayon devant le joueur
 
