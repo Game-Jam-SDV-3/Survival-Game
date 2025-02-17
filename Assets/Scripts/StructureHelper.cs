@@ -20,7 +20,7 @@ public static class StructureHelper
             nodesToCheck.Enqueue(child);
         }
 
-        while(nodesToCheck.Count > 0);
+        while(nodesToCheck.Count > 0)
         {
             Node currentNode = nodesToCheck.Dequeue();
 
@@ -35,9 +35,8 @@ public static class StructureHelper
                     nodesToCheck.Enqueue(child);
                 }
             }
-
-            return listToReturn;
         }
+        return listToReturn;
     }
 
     public static Vector2Int GenerateBottomLeftCornerBetween(
