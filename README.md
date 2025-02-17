@@ -1,6 +1,6 @@
 # Survival Game
 
-Notre projet est un jeu de survie. Il est développé avec Unity.
+Notre projet est un jeu de survie avec des vagues de monstres à repousser. Lorsque vous tuez un ennemi, vous pouvez hériter de ses pouvoirs avec une capacité débloquée. Il est développé avec Unity.
 
 ## Table des Matières
 1. [Fonctionnalités](#fonctionnalités)
@@ -40,4 +40,4 @@ Notre projet est un jeu de survie. Il est développé avec Unity.
 
 
 ## Auteurs
-Développé par Game Jam SDV 3 en période de cours. Retrouvez plus de détails dans le dépôt [GitHub](https://github.com/Game-Jam-SDV-3/Survival-Game).
+Développé par ElieLaj (Elie LAJOINIE), Titinite (Thibault LERAY), Swixos (Timéo AVI), Maratrom (Arthur LAGNEAUX) et JudIFruit (Julien PONS) en période de cours. Retrouvez plus de détails dans le dépôt [GitHub](https://github.com/Game-Jam-SDV-3/Survival-Game).
