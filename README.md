@@ -40,4 +40,11 @@ Notre projet est un jeu de survie avec des vagues de monstres à repousser. Lors
 
 
 ## Auteurs
-Développé par [ElieLaj](https://github.com/ElieLaj) (Elie LAJOINIE), [Titinite](https://github.com/Titinite) (Thibault LERAY), [Swixos](https://github.com/Swixos) (Timéo AVI), [Maratrom](https://github.com/Maratrom) (Arthur LAGNEAUX) et [JudIfruit](https://github.com/JudIfruit) (Julien PONS) en période de cours. Retrouvez plus de détails dans le dépôt [GitHub](https://github.com/Game-Jam-SDV-3/Survival-Game).
+Développé par : 
+- [ElieLaj](https://github.com/ElieLaj) (Elie LAJOINIE)
+- [Titinite](https://github.com/Titinite) (Thibault LERAY)
+- [Swixos](https://github.com/Swixos) (Timéo AVI)
+- [Maratrom](https://github.com/Maratrom) (Arthur LAGNEAUX)
+- [JudIfruit](https://github.com/JudIfruit) (Julien PONS)
+
+Retrouvez plus de détails dans le dépôt [GitHub](https://github.com/Game-Jam-SDV-3/Survival-Game).
