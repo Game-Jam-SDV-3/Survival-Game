@@ -1,17 +1,25 @@
 using UnityEngine;
 
-public class Monster : MonoBehaviour
+public class Monster : Entity
 {
-    public IPower power;
 
-    public void UsePower()
+    private void Start()
     {
-        if (power != null)
-            power.Activate();
+        // Ce monstre a un pouvoir de feu par d�faut
+        powerToUse = new FirePower(this);
+        AbsorbPower(powerToUse);
     }
 
-    public IPower DropPower()
+    void Attack()
     {
-        return power;
+        UsePower(); // Le monstre utilise ses pouvoirs en attaquant
+    }
+
+    public void Die()
+    {
+        Debug.Log("Monstre �limin� !");
+        FindObjectOfType<Player>().AbsorbPower(powerToUse); // Le joueur r�cup�re le pouvoir du monstre
+        Destroy(gameObject);
     }
 }
+
