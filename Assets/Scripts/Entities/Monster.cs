@@ -31,5 +31,13 @@ public class Monster : Entity
     public void TakeDamage(int damage)
     {
         health -= damage;
+
+        Debug.Log("Monstre touché ! PV: " + health);
+
+
+        if (health <= 0)
+        {
+            Die();
+        }
     }
 }
