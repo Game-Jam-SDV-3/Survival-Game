@@ -7,9 +7,15 @@ public class Player : Entity
     public bool isAttacking = false;
     public bool canDamage = true;
 
+    public int maxHealth = 100;
+    private int currentHealth;
+    public HealthBarUI healthBar;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update()
@@ -18,6 +24,11 @@ public class Player : Entity
         {
             UsePower();
             Attack();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            TakeDamage(10);
         }
 
         Vector3 moveDirection = Vector3.zero;
@@ -65,6 +76,22 @@ public class Player : Entity
         yield return new WaitForSeconds(1f);
         isAttacking = false;
         canDamage = true;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth, maxHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("Le joueur est mort !");
     }
 
 }
