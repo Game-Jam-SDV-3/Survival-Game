@@ -10,7 +10,8 @@ public abstract class Entity : MonoBehaviour
     public bool isAttacking = false;
     public bool canDamage = true;
     
-    protected float cooldown = 0f;
+    public float cooldown = 0f;
+    
     public void Initialize(int newDamage, float newSpeed, int newHealth)
     {
         damage = newDamage;
