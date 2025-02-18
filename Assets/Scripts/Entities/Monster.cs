@@ -43,7 +43,7 @@ public class Monster : Entity
                 ChasePlayer();
                 animator.SetTrigger("Chase");
                 animator.SetBool("Lost Player", false);
-
+                UsePower();
             }
 
             if (distance <= attackRange && !isAttacking)

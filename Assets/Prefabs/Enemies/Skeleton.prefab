@@ -4476,12 +4476,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6254016719467391219}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da2ea1493dab1d41ad768a1df568a3e, type: 3}
+  m_Script: {fileID: 11500000, guid: e9e513f2ea84d4f419c439ecafc0fb64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffect: {fileID: 1850033487435682, guid: 2c4b2397ab17cce4bae0e99c1004869d, type: 3}
-  entity: {fileID: 222479597018404699}
-  enemyTag: Player
+  hitEffect: {fileID: 0}
+  entity: {fileID: 0}
+  enemyTag: 
 --- !u!136 &3827180435213748591
 CapsuleCollider:
   m_ObjectHideFlags: 0

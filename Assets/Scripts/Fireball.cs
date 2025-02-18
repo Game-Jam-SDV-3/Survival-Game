@@ -3,7 +3,7 @@ using UnityEngine;
 public class Fireball : MonoBehaviour
 {
     public float speed = 10f;  // Vitesse de la boule
-    public int damage = 25;    // Dégâts infligés
+    public int damage = 50;    // Dégâts infligés
     public float lifetime = 5f; // Durée avant destruction automatique
     private Entity owner; // Référence vers l'entité qui a invoqué la fireball
 

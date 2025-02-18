@@ -19,7 +19,7 @@ public class WeaponCollider : MonoBehaviour
 
         if (other.CompareTag(enemyTag) && entity != null && entity.isAttacking && entity.canDamage)
         {
-            enemyEntity.TakeDamage(100);
+            enemyEntity.TakeDamage(30);
             entity.canDamage = false;
 
             if (hitEffect != null)
