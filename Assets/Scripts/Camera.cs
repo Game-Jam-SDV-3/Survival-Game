@@ -18,44 +18,36 @@ public class Camera : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             translation.z = speed * Time.deltaTime;
-            Debug.Log("W");
         }
         if (Input.GetKey(KeyCode.S))
         {
             translation.z = -speed * Time.deltaTime;
-            Debug.Log("S");
         }
         if (Input.GetKey(KeyCode.A))
         {
             translation.x = -speed * Time.deltaTime;
-            Debug.Log("A");
         }
         if (Input.GetKey(KeyCode.D))
         {
             translation.x = speed * Time.deltaTime;
-            Debug.Log("D");
         }
 
         if (Input.GetKey(KeyCode.Space))
         {
             translation.y = speed * Time.deltaTime;
-            Debug.Log("Space");
         }
         if (Input.GetKey(KeyCode.X))
         {
             translation.y = -speed * Time.deltaTime;
-            Debug.Log("X");
         }
 
         if (Input.GetKey(KeyCode.Q))
         {
             transform.Rotate(0, (rotationY - rotationSpeed) * Time.deltaTime, 0);
-            Debug.Log("Q");
         }
         if (Input.GetKey(KeyCode.E))
         {
             transform.Rotate(0, (rotationY + rotationSpeed) * Time.deltaTime, 0);
-            Debug.Log("E");
         }
 
         if (translation != Vector3.zero)
