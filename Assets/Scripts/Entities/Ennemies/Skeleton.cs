@@ -5,7 +5,7 @@ public class Skeleton : Monster
         base.Start();
 
         Initialize(30, 3f, 100);
-        powerToUse = new IncreaseResistancePower();
+        powerToUse = new FireballPower();
         AbsorbPower(powerToUse);
     }
 }

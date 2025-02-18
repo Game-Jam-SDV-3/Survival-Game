@@ -6,6 +6,8 @@ public class HealPower : IPower
 
     public float cooldown = 10f;
     public float Cooldown => cooldown;
+
+    public string Name => "Heal";
     public void Activate(Entity entity)
     {
         if (entity != null)
