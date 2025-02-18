@@ -23,6 +23,10 @@ public class DungeonCreator : MonoBehaviour
     public List<GameObject> mobPrefabs;
     public int minMobsPerRoom = 1;
     public int maxMobsPerRoom = 3;
+    public GameObject playerPrefab;
+    public Transform mainCamera;
+
+    private GameObject playerInstance;
 
     List<Vector3Int> possibleDoorVerticalPosition,
         possibleDoorHorizontalPosition,
@@ -62,6 +66,7 @@ public class DungeonCreator : MonoBehaviour
         }
         CreateWalls(wallParent);
         SpawnMobs(listOfRooms);
+        SpawnPlayer(listOfRooms);
     }
 
     private void CreateWalls(GameObject wallParent)
@@ -103,6 +108,21 @@ public class DungeonCreator : MonoBehaviour
                 }
             }
         }
+    }
+    private void SpawnPlayer(List<Node> rooms)
+    {
+        if (rooms.Count == 0 || playerPrefab == null) return;
+
+        Vector3 spawnPosition = new Vector3(
+            rooms[0].BottomLeftAreaCorner.x + 1,
+            3,
+            rooms[0].BottomLeftAreaCorner.y + 1
+        );
+
+        playerInstance = Instantiate(playerPrefab, spawnPosition, Quaternion.identity);
+        mainCamera.GetComponent<SmoothCamera>().target = playerInstance.transform;
+        mainCamera.GetComponent<PlayerLook>().playerBody = playerInstance.transform;
+        PlayerLook playerLook = playerInstance.GetComponent<PlayerLook>();
     }
 
     private void CreateMesh(Vector2Int bottomLeftCorner, Vector2Int topRightCorner)
