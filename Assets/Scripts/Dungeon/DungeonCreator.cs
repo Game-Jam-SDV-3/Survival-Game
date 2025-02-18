@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class DungeonCreator : MonoBehaviour
 {
@@ -18,6 +20,10 @@ public class DungeonCreator : MonoBehaviour
     [Range(0, 2)]
     public int roomOffset;
     public GameObject wallVertical, wallHorizontal;
+    public List<GameObject> mobPrefabs;
+    public int minMobsPerRoom = 1;
+    public int maxMobsPerRoom = 3;
+
     List<Vector3Int> possibleDoorVerticalPosition,
         possibleDoorHorizontalPosition,
         possibleWallHorizontalWallPosition,
@@ -55,6 +61,7 @@ public class DungeonCreator : MonoBehaviour
             CreateMesh(listOfRooms[i].BottomLeftAreaCorner, listOfRooms[i].TopRightAreaCorner);
         }
         CreateWalls(wallParent);
+        SpawnMobs(listOfRooms);
     }
 
     private void CreateWalls(GameObject wallParent)
@@ -73,6 +80,29 @@ public class DungeonCreator : MonoBehaviour
     private void CreateWall(GameObject wallParent, Vector3Int wallPosition, GameObject wallPrefab)
     {
         Instantiate(wallPrefab, wallPosition, Quaternion.identity, wallParent.transform);
+    }
+
+    private void SpawnMobs(List<Node> rooms)
+    {
+        foreach (var room in rooms)
+        {
+            int mobCount = UnityEngine.Random.Range(minMobsPerRoom, maxMobsPerRoom + 1);
+            for (int i = 0; i < mobCount; i++)
+            {
+                if (mobPrefabs.Count > 0)
+                {
+                    Vector3 spawnPosition = new Vector3(
+                        UnityEngine.Random.Range(room.BottomLeftAreaCorner.x + 1, room.TopRightAreaCorner.x - 1),
+                        0,
+                        UnityEngine.Random.Range(room.BottomLeftAreaCorner.y + 1, room.TopRightAreaCorner.y - 1)
+                    );
+
+                    Quaternion randomRotation = Quaternion.Euler(0, UnityEngine.Random.Range(0, 360), 0);
+                    GameObject mobPrefab = mobPrefabs[UnityEngine.Random.Range(0, mobPrefabs.Count)];
+                    Instantiate(mobPrefab, spawnPosition, randomRotation);
+                }
+            }
+        }
     }
 
     private void CreateMesh(Vector2Int bottomLeftCorner, Vector2Int topRightCorner)
@@ -112,13 +142,25 @@ public class DungeonCreator : MonoBehaviour
         mesh.uv = uvs;
         mesh.triangles = triangles;
 
-        GameObject dungeonFloor = new GameObject($"Mesh${bottomLeftCorner}", typeof(MeshFilter), typeof(MeshRenderer));
+        GameObject dungeonFloor = new GameObject($"Mesh{bottomLeftCorner}", typeof(MeshFilter), typeof(MeshRenderer), typeof(MeshCollider), typeof(Rigidbody), typeof(NavMeshSurface));
 
         dungeonFloor.transform.position = Vector3.zero;
         dungeonFloor.transform.localScale = Vector3.one;
         dungeonFloor.GetComponent<MeshFilter>().mesh = mesh;
         dungeonFloor.GetComponent<MeshRenderer>().material = material;
         dungeonFloor.transform.parent = transform;
+
+        MeshCollider meshCollider = dungeonFloor.GetComponent<MeshCollider>();
+        meshCollider.convex = false;
+
+        Rigidbody rb = dungeonFloor.GetComponent<Rigidbody>();
+        rb.isKinematic = true;
+        rb.useGravity = false;
+
+        NavMeshSurface navMeshSurface = dungeonFloor.GetComponent<NavMeshSurface>();
+        navMeshSurface.collectObjects = CollectObjects.All;
+        navMeshSurface.useGeometry = NavMeshCollectGeometry.RenderMeshes;
+        navMeshSurface.BuildNavMesh();
 
         for (int row = (int)bottomLeftV.x; row <= (int)bottomRightV.x; row++)
         {
