@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class IncreaseDamagePower : IPower
 {
-    public int damageIncrease = 10;
-    public void Activate()
+    public int damageIncrease = 20;
+
+    public float cooldown = 10f;
+    public float Cooldown => cooldown;
+    public void Activate(Entity entity)
     {
         Debug.Log($"IncreaseDamage is activated and increase damage by {damageIncrease}");
     }

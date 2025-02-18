@@ -2,5 +2,6 @@ using UnityEngine;
 
 public interface IPower
 {
-    void Activate();
+    float Cooldown { get; }
+    void Activate(Entity entity);
 }

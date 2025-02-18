@@ -286,17 +286,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 366260633}
   smoothSpeed: 0.1
---- !u!114 &366260627 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4135139875585415547, guid: 9e22051fd64955c4db5acd26cae83223, type: 3}
-  m_PrefabInstance: {fileID: 2046798916880444364}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db687e80be27cfe4b9aaaeb5a79a8d30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &366260633 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5546036333771910182, guid: 9e22051fd64955c4db5acd26cae83223, type: 3}
@@ -651,18 +640,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2464955521911856871, guid: 9e22051fd64955c4db5acd26cae83223, type: 3}
-      propertyPath: entity
-      value: 
-      objectReference: {fileID: 366260627}
-    - target: {fileID: 2464955521911856871, guid: 9e22051fd64955c4db5acd26cae83223, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 366260627}
-    - target: {fileID: 2464955521911856871, guid: 9e22051fd64955c4db5acd26cae83223, type: 3}
-      propertyPath: enemyTag
-      value: Enemy
-      objectReference: {fileID: 0}
     - target: {fileID: 5169193414177207964, guid: 9e22051fd64955c4db5acd26cae83223, type: 3}
       propertyPath: m_Name
       value: Rio 1

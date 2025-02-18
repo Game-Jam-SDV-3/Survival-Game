@@ -4,7 +4,7 @@ using UnityEngine;
 public class WeaponCollider : MonoBehaviour
 {
     public GameObject hitEffect;
-    public Entity entity;  // Assure-toi que cette référence est bien assignée
+    public Entity entity;
     public string enemyTag;
 
     private void OnTriggerEnter(Collider other)
@@ -19,7 +19,7 @@ public class WeaponCollider : MonoBehaviour
 
         if (other.CompareTag(enemyTag) && entity != null && entity.isAttacking && entity.canDamage)
         {
-            enemyEntity.TakeDamage(10);
+            enemyEntity.TakeDamage(100);
             entity.canDamage = false;
 
             if (hitEffect != null)

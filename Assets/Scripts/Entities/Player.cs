@@ -17,10 +17,14 @@ public class Player : Entity
 
     void Update()
     {
+        if (Input.GetMouseButton(0) && !isAttacking)
+        {
+            Attack();
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && !isAttacking)
         {
             UsePower();
-            Attack();
         }
 
         if (Input.GetKeyDown(KeyCode.P))

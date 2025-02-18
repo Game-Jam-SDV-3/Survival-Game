@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
-
 public abstract class Entity : MonoBehaviour
 {
     public List<IPower> powers = new List<IPower>();
@@ -9,6 +9,8 @@ public abstract class Entity : MonoBehaviour
     public int health = 100;
     public bool isAttacking = false;
     public bool canDamage = true;
+    
+    private float cooldown = 0f;
     public void Initialize(int newDamage, float newSpeed, int newHealth)
     {
         damage = newDamage;
@@ -19,7 +21,7 @@ public abstract class Entity : MonoBehaviour
     public void AbsorbPower(IPower newPower)
     {
         powers.Add(newPower);
-        newPower.Activate();
+        Debug.Log($"{name} has absorbed a power");
     }
 
     public void RemovePower(IPower power)
@@ -32,10 +34,21 @@ public abstract class Entity : MonoBehaviour
 
     public void UsePower()
     {
-        foreach (IPower power in powers)
+        if (powers.Count > 0 && cooldown <= 0)
+        powers[0].Activate(this);
+        Debug.Log("Power used");
+    }
+
+    protected IEnumerator CooldownTimer(float powerCooldown)
+    {
+        cooldown = powerCooldown;
+        while (cooldown > 0)
         {
-            power.Activate();
+            cooldown -= Time.deltaTime;
+            yield return null;
         }
+        cooldown = 0;
+
     }
 
     protected void Move(Vector3 dir)

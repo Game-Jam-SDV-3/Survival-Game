@@ -7,7 +7,7 @@ public class Zombie : Monster
         base.Start();
 
         Initialize(10, 2f, 70);
-        powerToUse = new BitePower(); 
+        powerToUse = new HealPower(); 
         AbsorbPower(powerToUse);
     }
 }
