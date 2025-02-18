@@ -96,10 +96,4 @@ public class Player : Entity
             Die();
         }
     }
-
-    void Die()
-    {
-        Debug.Log("Le joueur est mort !");
-    }
-
 }
