@@ -7,7 +7,8 @@ public abstract class Entity : MonoBehaviour
     public int damage = 10;
     public float speed = 5;
     public int health = 100;
-
+    public bool isAttacking = false;
+    public bool canDamage = true;
     public void Initialize(int newDamage, float newSpeed, int newHealth)
     {
         damage = newDamage;

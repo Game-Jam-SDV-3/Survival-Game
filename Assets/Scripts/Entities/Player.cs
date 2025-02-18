@@ -4,8 +4,6 @@ using UnityEngine;
 public class Player : Entity
 {
     Animator animator;
-    public bool isAttacking = false;
-    public bool canDamage = true;
 
     public int maxHealth = 100;
     private int currentHealth;
