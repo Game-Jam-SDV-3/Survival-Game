@@ -62,14 +62,13 @@ public class Player : Entity
         }
     }
 
-    /**
     public override void Die()
     {
         Debug.Log("Monstre �limin� !");
         Player player = Object.FindFirstObjectByType<Player>();
 
-        Destroy(gameObject);
-    }*/
+        //Destroy(gameObject);
+    }
 
     private void Attack()
     {
