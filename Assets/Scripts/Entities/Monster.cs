@@ -13,7 +13,7 @@ public class Monster : Entity
     public float attackRange = 2f;
 
     private bool isChasing = false;
-
+    private bool isDead = false;
     protected void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -34,7 +34,7 @@ public class Monster : Entity
 
     void Update()
     {
-        if (player != null)
+        if (player != null && !isDead)
         {
             float distance = Vector3.Distance(transform.position, player.position);
 
@@ -99,6 +99,8 @@ public class Monster : Entity
     {
         Debug.Log("Monstre éliminé !");
         Player player = Object.FindFirstObjectByType<Player>();
+        isDead = true;
+        agent.isStopped = true;
         if (player != null && powerToUse != null)
         {
             player.AbsorbPower(powerToUse);
