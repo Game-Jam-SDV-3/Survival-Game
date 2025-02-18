@@ -18,6 +18,7 @@ public class CorridorsGenerator
                 continue;
             }
             CorridorNode corridor = new CorridorNode(node.ChildrenNodeList[0], node.ChildrenNodeList[1], corridorWidth);
+            corridorList.Add(corridor);
         }
 
         return corridorList;
