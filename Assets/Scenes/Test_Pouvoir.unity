@@ -3366,7 +3366,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 1850033487435682, guid: 2c4b2397ab17cce4bae0e99c1004869d, type: 3}
-  player: {fileID: 320652697}
+  entity: {fileID: 0}
+  enemyTag: 
 --- !u!1 &1906713942
 GameObject:
   m_ObjectHideFlags: 0
