@@ -9,13 +9,11 @@ public class Player : Entity
 
     public int maxHealth = 100;
     private int currentHealth;
-    public HealthBarUI healthBar;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update()
@@ -66,7 +64,7 @@ public class Player : Entity
 
     public override void Die()
     {
-        Debug.Log("Monstre éliminé !");
+        Debug.Log("Monstre ï¿½liminï¿½ !");
         Player player = Object.FindFirstObjectByType<Player>();
 
         Destroy(gameObject);
@@ -84,16 +82,5 @@ public class Player : Entity
         yield return new WaitForSeconds(1f);
         isAttacking = false;
         canDamage = true;
-    }
-
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth, maxHealth);
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
     }
 }

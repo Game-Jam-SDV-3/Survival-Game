@@ -48,7 +48,7 @@ public abstract class Entity : MonoBehaviour
     {
         health -= damage;
 
-        Debug.Log("Monstre touché ! PV: " + health);
+        Debug.Log($"{name} took {damage} damage and now have {health} health");
 
         if (health <= 0)
         {
