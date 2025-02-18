@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Entity
 {
@@ -67,7 +68,7 @@ public class Player : Entity
         Debug.Log("Monstre �limin� !");
         Player player = Object.FindFirstObjectByType<Player>();
 
-        //Destroy(gameObject);
+        SceneManager.LoadScene("Test_Pouvoir");
     }
 
     private void Attack()
