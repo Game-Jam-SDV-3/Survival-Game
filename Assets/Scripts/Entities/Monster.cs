@@ -103,6 +103,8 @@ public class Monster : Entity
         {
             player.AbsorbPower(powerToUse);
         }
-        Destroy(gameObject);
+        animator.SetTrigger("Dead");
+        Destroy(gameObject, 5f);
+
     }
 }

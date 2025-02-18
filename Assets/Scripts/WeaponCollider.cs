@@ -4,18 +4,33 @@ using UnityEngine;
 public class WeaponCollider : MonoBehaviour
 {
     public GameObject hitEffect;
-    public Entity entity;
+    public Entity entity;  // Assure-toi que cette référence est bien assignée
+    public string enemyTag;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy") && entity.isAttacking && entity.canDamage)
+        Entity enemyEntity = other.GetComponent<Entity>();
+
+        if (enemyEntity == null)
         {
-            other.GetComponent<Monster>().TakeDamage(10);
+            Debug.LogWarning("L'entité attaquée n'a pas de script Entity !");
+            return;
+        }
+
+        if (other.CompareTag(enemyTag) && entity != null && entity.isAttacking && entity.canDamage)
+        {
+            enemyEntity.TakeDamage(10);
             entity.canDamage = false;
 
-            GameObject bloodEffect = Instantiate(hitEffect, new Vector3(other.transform.position.x, other.transform.position.y + 2, other.transform.position.z), other.transform.rotation);
-
-            Destroy(bloodEffect, 2f);
+            if (hitEffect != null)
+            {
+                GameObject bloodEffect = Instantiate(hitEffect, other.transform.position + Vector3.up * 2, other.transform.rotation);
+                Destroy(bloodEffect, 2f);
+            }
+            else
+            {
+                Debug.LogWarning("hitEffect n'est pas assigné !");
+            }
         }
     }
 }
