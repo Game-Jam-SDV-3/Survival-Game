@@ -27,4 +27,9 @@ public class Monster : Entity
         }
         Destroy(gameObject);
     }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
 }

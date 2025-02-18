@@ -14,7 +14,8 @@ public class SmoothCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        Vector3 desiredPosition = target.position + offset;
-        transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed); // Lissage
+        // Calcul de la position désirée
+        Vector3 desiredPosition = target.position + target.rotation * offset;
+        transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
     }
 }

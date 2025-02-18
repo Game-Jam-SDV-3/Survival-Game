@@ -1,12 +1,23 @@
+using System.Collections;
 using UnityEngine;
 
 public class Player : Entity
 {
+    Animator animator;
+    public bool isAttacking = false;
+    public bool canDamage = true;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !isAttacking)
         {
             UsePower();
+            Attack();
         }
 
         Vector3 moveDirection = Vector3.zero;
@@ -30,7 +41,30 @@ public class Player : Entity
 
         if (moveDirection != Vector3.zero)
         {
-            Move(moveDirection.normalized);
+            animator.SetBool("isWalking", true);
+            if (!isAttacking)
+            {
+                Move(moveDirection.normalized);
+            }
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
         }
     }
+
+    private void Attack()
+    {
+        isAttacking = true;
+        animator.SetTrigger("Attack");
+        StartCoroutine(ResetAttackCooldown());
+    }
+
+    IEnumerator ResetAttackCooldown()
+    {
+        yield return new WaitForSeconds(1f);
+        isAttacking = false;
+        canDamage = true;
+    }
+
 }
