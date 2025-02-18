@@ -35,8 +35,9 @@ public static class StructureHelper
                     nodesToCheck.Enqueue(child);
                 }
             }
+
+            return listToReturn;
         }
-        return listToReturn;
     }
 
     public static Vector2Int GenerateBottomLeftCornerBetween(
