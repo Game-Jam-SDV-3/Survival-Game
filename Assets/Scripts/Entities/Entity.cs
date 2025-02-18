@@ -21,7 +21,7 @@ public abstract class Entity : MonoBehaviour
     public void AbsorbPower(IPower newPower)
     {
         powers.Add(newPower);
-        Debug.Log($"{name} has absorbed a power");
+        Debug.Log($"{name} has absorbed a power: {newPower.Name}");
     }
 
     public void RemovePower(IPower power)

@@ -84,9 +84,10 @@ public class Player : Entity
     public override void UsePower()
     {
         if (powers.Count > 0 && cooldown <= 0){
+
+            StartCoroutine(CooldownTimer(powers[0].Cooldown));
             powers[0].Activate(this);
             RemovePower(powers[0]);
-            StartCoroutine(CooldownTimer(powers[0].Cooldown));
         }
         Debug.Log("Power used");
     }
