@@ -14,16 +14,11 @@ public class HealthBarUI : MonoBehaviour
 
     void Update()
     {
-        healthFill.fillAmount = player.health / player.maxHealth;
+        healthFill.fillAmount = (float)player.health / player.maxHealth;
     }
 
     public void SetMaxHealth(int maxHealth)
     {
         healthFill.fillAmount = 1;
-    }
-
-    public void SetHealth(int health, int maxHealth)
-    {
-        healthFill.fillAmount = (float)health / maxHealth;
     }
 }

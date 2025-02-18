@@ -42,7 +42,10 @@ public abstract class Entity : MonoBehaviour
         transform.Translate(dir * speed * Time.deltaTime);
     }
 
-    public abstract void Die();
+    public void Die()
+    {
+        Debug.Log($"{name} is dead");
+    }
 
     public void TakeDamage(int damage)
     {
