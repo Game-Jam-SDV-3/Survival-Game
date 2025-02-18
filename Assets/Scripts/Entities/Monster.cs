@@ -95,6 +95,16 @@ public class Monster : Entity
         canDamage = true;
     }
 
+    public override void UsePower()
+    {
+        if (powers.Count > 0 && cooldown <= 0)
+        {
+            powerToUse = powers[0];
+            powers[0].Activate(this);
+            StartCoroutine(CooldownTimer(powerToUse.Cooldown));
+        }
+    }
+
     public override void Die()
     {
         Debug.Log("Monstre éliminé !");

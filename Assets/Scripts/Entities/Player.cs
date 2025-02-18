@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -78,6 +79,16 @@ public class Player : Entity
         isAttacking = true;
         animator.SetTrigger("Attack");
         StartCoroutine(ResetAttackCooldown());
+    }
+
+    public override void UsePower()
+    {
+        if (powers.Count > 0 && cooldown <= 0){
+            powers[0].Activate(this);
+            RemovePower(powers[0]);
+            StartCoroutine(CooldownTimer(powers[0].Cooldown));
+        }
+        Debug.Log("Power used");
     }
 
     IEnumerator ResetAttackCooldown()

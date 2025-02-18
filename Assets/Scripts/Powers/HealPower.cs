@@ -8,8 +8,11 @@ public class HealPower : IPower
     public float Cooldown => cooldown;
     public void Activate(Entity entity)
     {
-        if (entity == null)
+        if (entity != null)
+        {
             entity.health += health;
-        Debug.Log($"Heal is activated and heal {health} health");
+            Debug.Log($"Heal is activated and heal {health} health");
+        }
+            
     }
 }

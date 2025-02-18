@@ -10,7 +10,7 @@ public abstract class Entity : MonoBehaviour
     public bool isAttacking = false;
     public bool canDamage = true;
     
-    private float cooldown = 0f;
+    protected float cooldown = 0f;
     public void Initialize(int newDamage, float newSpeed, int newHealth)
     {
         damage = newDamage;
@@ -32,12 +32,7 @@ public abstract class Entity : MonoBehaviour
         }
     }
 
-    public void UsePower()
-    {
-        if (powers.Count > 0 && cooldown <= 0)
-        powers[0].Activate(this);
-        Debug.Log("Power used");
-    }
+    public abstract void UsePower();
 
     protected IEnumerator CooldownTimer(float powerCooldown)
     {
