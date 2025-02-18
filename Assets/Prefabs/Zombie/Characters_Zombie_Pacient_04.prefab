@@ -531,9 +531,10 @@ GameObject:
   - component: {fileID: 6632397118315911175}
   - component: {fileID: 6282133518285921436}
   - component: {fileID: 9062047654523423948}
+  - component: {fileID: 3933744763852418257}
   m_Layer: 0
   m_Name: Characters_Zombie_Pacient_04
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -696,7 +697,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
@@ -723,6 +724,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7345156333933612023, guid: 4c3591f659b351b44a369293fe22fd72, type: 3}
+--- !u!114 &3933744763852418257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709795101266524081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41448b7d462a2a54a8829ecad91bb93e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  speed: 5
+  health: 100
 --- !u!1 &1724545990173975507
 GameObject:
   m_ObjectHideFlags: 0

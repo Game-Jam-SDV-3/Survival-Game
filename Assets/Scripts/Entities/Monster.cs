@@ -17,7 +17,7 @@ public class Monster : Entity
         UsePower();
     }
 
-    public void Die()
+    public override void Die()
     {
         Debug.Log("Monstre éliminé !");
         Player player = Object.FindFirstObjectByType<Player>();
@@ -26,18 +26,5 @@ public class Monster : Entity
             player.AbsorbPower(powerToUse);
         }
         Destroy(gameObject);
-    }
-
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-
-        Debug.Log("Monstre touché ! PV: " + health);
-
-
-        if (health <= 0)
-        {
-            Die();
-        }
     }
 }

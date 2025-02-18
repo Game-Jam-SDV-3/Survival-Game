@@ -53,6 +53,14 @@ public class Player : Entity
         }
     }
 
+    public override void Die()
+    {
+        Debug.Log("Monstre éliminé !");
+        Player player = Object.FindFirstObjectByType<Player>();
+
+        Destroy(gameObject);
+    }
+
     private void Attack()
     {
         isAttacking = true;

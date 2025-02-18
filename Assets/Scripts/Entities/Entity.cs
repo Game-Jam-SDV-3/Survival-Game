@@ -1,13 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
+public abstract class Entity : MonoBehaviour
 {
     public List<IPower> powers = new List<IPower>();
     public int damage = 10;
     public float speed = 5;
     public int health = 100;
-
 
     public void Initialize(int newDamage, float newSpeed, int newHealth)
     {
@@ -15,7 +14,6 @@ public class Entity : MonoBehaviour
         speed = newSpeed;
         health = newHealth;
     }
-
 
     public void AbsorbPower(IPower newPower)
     {
@@ -43,5 +41,18 @@ public class Entity : MonoBehaviour
     {
         transform.Translate(dir * speed * Time.deltaTime);
     }
-}
 
+    public abstract void Die();
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        Debug.Log("Monstre touché ! PV: " + health);
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+}
